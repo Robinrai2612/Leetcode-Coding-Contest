@@ -1,0 +1,9 @@
+class Solution:
+    def minimumOperations(self, nums: List[int]) -> int:
+        nums=len(nums)
+        if nums>1:
+            return int((nums*(nums // 2)- (nums//2)**2 ))//2
+        elif(nums==1):
+            return int(nums // 2)
+            
+            
