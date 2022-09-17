@@ -1,0 +1,15 @@
+class Solution:
+    def countDaysTogether(self, arriveAlice: str, leaveAlice: str, arriveBob: str, leaveBob: str) -> int:
+        aA = datetime.datetime.strptime("2023-" + arriveAlice, "%Y-%m-%d").date()
+        aB = datetime.datetime.strptime("2023-" + arriveBob, "%Y-%m-%d").date()
+        
+        
+        lA = datetime.datetime.strptime("2023-" + leaveAlice, "%Y-%m-%d").date()
+        lB = datetime.datetime.strptime("2023-" + leaveBob, "%Y-%m-%d").date()
+        
+		# Alison or Bob leaves before the friend arives
+        if lA < aB or lB < aA: return 0
+		
+		# Difference between first person leave date and last person arive date
+        return (min(lA,lB) - max(aA,aB)).days + 1
+        
