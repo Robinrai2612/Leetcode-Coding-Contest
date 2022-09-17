@@ -1,1 +1,13 @@
-
+class Solution:
+    def matchPlayersAndTrainers(self, players: List[int], trainers: List[int]) -> int:
+        players = sorted(players)
+        trainers = sorted(trainers)
+        ref1, ref2 = len(players) - 1, len(trainers) - 1
+        res = 0
+        while ref1>=0 and ref2>=0:
+            if players[ref1] <= trainers[ref2]:
+                ref2 -= 1
+                res += 1
+            ref1 -= 1
+        return res
+        
